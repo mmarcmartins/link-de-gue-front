@@ -1,39 +1,61 @@
 ---
+import { ShortenForm } from '../components/ShortenForm/ShortenForm';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
-
 <Layout>
-	<main>	
-		<section class="header">
-			<img src="/logo.png" alt="Logo" />
-			<h1 class="bubblegum-sans-regular">LINK DE GUE</h1>
-			<p>Encurtador de links</p>
-		</section>
-		
-		<section class="input-section">
-			<input type="text" placeholder="Cole seu link aqui" />
-			<button>Encurtar</button>
-			<p>Link encurtado: <a href="#">https://linkdegue.com/1234567890</a></p>
-		</section>
+    <main class="min-h-screen flex flex-col items-center justify-center pt-70 px-4 py-8 relative">
+        <div class="w-full max-w-3xl space-y-8">
+            <img 
+            src="/logo.png" 
+            alt="Logo Link de Gue" 
+            width="350"
+            height="350"
+            class="absolute -top-10 right-0 left-0 m-auto hover:scale-105 transition-transform duration-300"
+        />
+            <!-- Combined Header and Form Section -->
+            <section class="bg-amber-50 backdrop-blur-sm rounded-2xl shadow-xl p-6 md:p-8">
+                <!-- Header -->
+                <div class="text-center space-y-4">                                                
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 bubblegum-sans-regular">
+                        LINK DE GUE
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-600">
+                        Encurtador de links simples e rápido
+                    </p>
+                </div>
 
-		<footer class="how-to-use">
-			<span>Como utilizar</span>
-			<p>1. Cole seu link no campo acima</p>
-			<p>2. Clique em "Encurtar"</p>
-			<p>3. Copie o link encurtado</p>
-		</footer>
-	</main>
+                <!-- Form -->
+                <div class="pt-6 sm:pt-8">
+                    <ShortenForm client:only />
+                </div>
+            </section>
+
+            <!-- How to Use Section -->
+            <footer class="bg-amber-50 backdrop-blur-sm rounded-2xl shadow-xl p-6 md:p-8">
+                <h2 class="text-xl sm:text-2xl font-semibold text-slate-800 mb-4 text-center">
+                    Como utilizar
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                    <div class="flex flex-col items-center text-center p-3 sm:p-4 bg-slate-50 rounded-lg border border-slate-200">
+                        <span class="text-xl sm:text-2xl font-bold text-slate-700 mb-2">1</span>
+                        <p class="text-sm sm:text-base text-slate-700">Cole seu link no campo acima</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center p-3 sm:p-4 bg-slate-50 rounded-lg border border-slate-200">
+                        <span class="text-xl sm:text-2xl font-bold text-slate-700 mb-2">2</span>
+                        <p class="text-sm sm:text-base text-slate-700">Clique em "Encurtar"</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center p-3 sm:p-4 bg-slate-50 rounded-lg border border-slate-200">
+                        <span class="text-xl sm:text-2xl font-bold text-slate-700 mb-2">3</span>
+                        <p class="text-sm sm:text-base text-slate-700">Copie o link encurtado</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
 </Layout>
 
-
-<style>	
-	.bubblegum-sans-regular {
-		font-family: "Bubblegum Sans", sans-serif;
-		font-weight: 400;
-		font-style: normal;
-	}
-
+<style>
+    .bubblegum-sans-regular {
+        font-family: 'Bubblegum Sans', cursive;
+    }
 </style>
