@@ -11,10 +11,8 @@ import Layout from '../layouts/Layout.astro';
             width="350"
             height="350"
             class="absolute -top-10 right-0 left-0 m-auto hover:scale-105 transition-transform duration-300"
-        />
-            <!-- Combined Header and Form Section -->
+        />            
             <section class="bg-amber-50 backdrop-blur-sm rounded-2xl shadow-xl p-6 md:p-8">
-                <!-- Header -->
                 <div class="text-center space-y-4">                                                
                     <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 bubblegum-sans-regular">
                         LINK DE GUE
@@ -23,14 +21,12 @@ import Layout from '../layouts/Layout.astro';
                         Encurtador de links simples e rápido
                     </p>
                 </div>
-
-                <!-- Form -->
+                
                 <div class="pt-6 sm:pt-8">
                     <ShortenForm client:only />
                 </div>
             </section>
-
-            <!-- How to Use Section -->
+            
             <footer class="bg-amber-50 backdrop-blur-sm rounded-2xl shadow-xl p-6 md:p-8">
                 <h2 class="text-xl sm:text-2xl font-semibold text-slate-800 mb-4 text-center">
                     Como utilizar

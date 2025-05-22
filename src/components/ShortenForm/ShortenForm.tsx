@@ -2,6 +2,7 @@ import { QueryClientProvider, useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { useControlledState } from "../../hooks/useControlledState";
 import { queryClient } from "../../lib/react-query";
+import { CopyButton } from '../CopyButton';
 
 const VALID_REGEX = /^(https?:\/\/)?([\w\-]+\.)+[\w\-]{2,}(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/i;
 
@@ -55,15 +56,23 @@ const Form = () => {
             <div className="w-full px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 bg-white/90 rounded-lg shadow-lg">                
                 {data?.success && (
                     <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-green-50 rounded-md border border-green-200">
-                        <p className="text-xs sm:text-sm text-gray-600 mb-1">Link encurtado:</p>
-                        <a 
-                            href={`${import.meta.env.PUBLIC_API}/${data.shortenedUrl}`} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="text-green-600 hover:text-green-700 font-medium break-all text-xs sm:text-sm md:text-base"
-                        >
-                            {`${import.meta.env.PUBLIC_API}/${data.shortenedUrl}`}
-                        </a>
+                        <div className="flex items-start justify-between gap-2">
+                            <div className="flex-1 min-w-0">
+                                <p className="text-xs sm:text-sm text-gray-600 mb-1">Link encurtado:</p>
+                                <a 
+                                    href={`${import.meta.env.PUBLIC_API}/${data.shortenedUrl}`} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="text-green-600 hover:text-green-700 font-medium break-all text-xs sm:text-sm md:text-base"
+                                >
+                                    {`${import.meta.env.PUBLIC_API}/${data.shortenedUrl}`}
+                                </a>
+                            </div>
+                            <CopyButton 
+                                textToCopy={`${import.meta.env.PUBLIC_API}/${data.shortenedUrl}`}
+                                className="shrink-0"
+                            />
+                        </div>
                     </div>
                 )}
 
