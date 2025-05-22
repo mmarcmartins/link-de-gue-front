@@ -2,7 +2,7 @@
 
 A minimalist URL shortening service built with Astro.js.
 
-![Link de Gue Logo](/public/logo.png)
+![Link de Gue Logo](/public/screenshot.png)
 
 ## 📋 Project Overview
 
